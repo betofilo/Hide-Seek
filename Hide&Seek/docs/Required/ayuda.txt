@@ -1,4 +1,0 @@
-Para modificar este menú. Ir a <proyecto>/docs/Required/ayuda.txt
-0. Salir
-1. Mostrar GUI
-2. Prueba de Notificación
