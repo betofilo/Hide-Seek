@@ -16,7 +16,10 @@ public class View extends JFrame implements GabenFrame {
 	private static final long serialVersionUID = 1L;
 	private Dialogos dialogos = new Dialogos();
 	private PanelFuncionesSuperiores toolbar = new PanelFuncionesSuperiores();
-	
+	private Login login = new Login();
+	private AdminFrame admin = new AdminFrame();
+	private UserFrame user = new UserFrame();
+	private CoupleFrame couple = new CoupleFrame();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -36,7 +39,7 @@ public class View extends JFrame implements GabenFrame {
 		setSize(800,600);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
-		setVisible(true);
+		setVisible(false);
 	}
 	
 	/**
@@ -63,6 +66,9 @@ public class View extends JFrame implements GabenFrame {
 		toolbar.getCargar().addActionListener(control);
 		toolbar.getSalir().addActionListener(control);
 		//TODO: Poner aqui los componentes a escuchar y comentar a que panel pertenece
+		//Login
+		login.getSignin().addActionListener(control);
+		login.getSignup().addActionListener(control);
 	}
 	
 	public String cargarArchivo() throws IOException {
@@ -109,5 +115,16 @@ public class View extends JFrame implements GabenFrame {
 	public PanelFuncionesSuperiores getToolbar() {
 		return toolbar;
 	}
-	
+	public Login getLogin() {
+		return login;
+	}
+	public AdminFrame getAdmin() {
+		return admin;
+	}
+	public UserFrame getUser() {
+		return user;
+	}
+	public CoupleFrame getCouple() {
+		return couple;
+	}
 }
