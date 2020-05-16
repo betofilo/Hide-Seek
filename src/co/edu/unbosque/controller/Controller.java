@@ -55,7 +55,7 @@ public class Controller implements ActionListener {
 
 			try {
 				int comando = Integer.parseInt(view.getDialogos().input(System.in, NOMBREPROYECTO+": DebuggerMode",
-						mundo.getArchivo().leerArchivo("./docs/Required/ayuda.txt"), JOptionPane.PLAIN_MESSAGE));
+						"holis", JOptionPane.PLAIN_MESSAGE));
 				switch (comando) {
 				default:
 					view.getDialogos().output("Error", "Bad command!", JOptionPane.ERROR_MESSAGE);
@@ -74,10 +74,7 @@ public class Controller implements ActionListener {
 			} catch (Exception e) {
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
-				view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-				view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-						+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-						JOptionPane.ERROR_MESSAGE);
+				
 			}
 		}
 	}
@@ -90,12 +87,7 @@ public class Controller implements ActionListener {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
 		} catch (Exception e) {
-			StringWriter errors = new StringWriter();
-			e.printStackTrace(new PrintWriter(errors));
-			view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-					JOptionPane.ERROR_MESSAGE);
+			
 		}
 	}
 	
@@ -135,22 +127,7 @@ public class Controller implements ActionListener {
 		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
 		 */
 		catch (Exception e2) {
-			StringWriter errors = new StringWriter();
-			e2.printStackTrace(new PrintWriter(errors));
-			try {
-				view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-				view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-						+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-						JOptionPane.ERROR_MESSAGE);
-			} catch (IOException e1) {
-				view.getDialogos().output("Error Fatal",
-						"Ha ocurrido un error inesperado donde se debe salir del programa.\nMotivo: Error creando el log de archivos",
-						JOptionPane.ERROR_MESSAGE);
-				System.exit(1);
-			} catch (AWTException e1) {
-				// TODO Auto-generated catch block
-				
-			}
+			
 			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
 					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
 					JOptionPane.ERROR_MESSAGE);
