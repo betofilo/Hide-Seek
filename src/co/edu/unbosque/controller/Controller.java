@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -11,6 +12,7 @@ import java.io.StringWriter;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.model.Mundo;
+import co.edu.unbosque.model.persistence.ArchivoClientes;
 import co.edu.unbosque.view.View;
 
 /**
@@ -22,7 +24,11 @@ public class Controller implements ActionListener {
 	private Mundo mundo = new Mundo();
 	private View view = new View();
 	public final static String NOMBREPROYECTO = "Hide & Seek";
-
+	private ArchivoClientes archivoc;
+	
+	
+	
+	
 	/**
 	 * Método Constructor del Controlador
 	 * 
@@ -30,6 +36,7 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() throws Exception {
 		Consola();
+		
 	}
 
 	/**
@@ -45,6 +52,7 @@ public class Controller implements ActionListener {
 		 */
 		boolean activo = true;
 		while (activo) {
+
 			try {
 				int comando = Integer.parseInt(view.getDialogos().input(System.in, NOMBREPROYECTO+": DebuggerMode",
 						mundo.getArchivo().leerArchivo("./docs/Required/ayuda.txt"), JOptionPane.PLAIN_MESSAGE));

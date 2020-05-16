@@ -1,12 +1,10 @@
 package co.edu.unbosque.model;
 
-import co.edu.unbosque.model.persistence.Binaries;
-import co.edu.unbosque.model.persistence.GabenFile;
-import co.edu.unbosque.model.persistence.GabenProperties;
+
 
 /**
- * @author Gabriel Blanco Clase "multitoma" donde se define la solución de la
- *         problemática
+ * @author Gabriel Blanco Clase "multitoma" donde se define la soluciï¿½n de la
+ *         problemï¿½tica
  */
 public class Mundo {
 	private GabenFile archivo = new GabenFile();
