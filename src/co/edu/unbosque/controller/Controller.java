@@ -55,7 +55,7 @@ public class Controller implements ActionListener {
 
 			try {
 				int comando = Integer.parseInt(view.getDialogos().input(System.in, NOMBREPROYECTO+": DebuggerMode",
-						mundo.getArchivo().leerArchivo("./docs/Required/ayuda.txt"), JOptionPane.PLAIN_MESSAGE));
+						"holis", JOptionPane.PLAIN_MESSAGE));
 				switch (comando) {
 				default:
 					view.getDialogos().output("Error", "Bad command!", JOptionPane.ERROR_MESSAGE);
@@ -74,10 +74,7 @@ public class Controller implements ActionListener {
 			} catch (Exception e) {
 				StringWriter errors = new StringWriter();
 				e.printStackTrace(new PrintWriter(errors));
-				view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-				view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-						+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-						JOptionPane.ERROR_MESSAGE);
+				
 			}
 		}
 	}
@@ -89,41 +86,13 @@ public class Controller implements ActionListener {
 		try {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
-			view.getLogin().setVisible(true);
 		} catch (Exception e) {
-			StringWriter errors = new StringWriter();
-			e.printStackTrace(new PrintWriter(errors));
-			view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-					JOptionPane.ERROR_MESSAGE);
+			
 		}
 	}
-	public void iniciarSesion(String user, String password) throws Exception {
-		String data = mundo.login(user, password);
-		if(data != null) {
-			String[] profile = data.split(",");
-			auth(profile[0],Integer.parseInt(profile[2]));
-		} else {
-			view.getDialogos().output("Error", "Usuario o clave incorrecta", JOptionPane.ERROR_MESSAGE);
-		}
-	}
+	
 	public void registrarse() throws Exception {
 		
-	}
-	public void auth(String user, int profile) throws Exception {
-		if(profile == 0) {
-			view.getAdmin().setTitle("H&S ADMIN: "+user);
-			view.getAdmin().start(this);
-		}
-		if(profile == 1) {
-			view.getUser().setTitle("Hide & Seek: "+user);
-			view.getUser().start(this);
-		}
-		if(profile == 2) {
-			view.getCouple().setTitle("Hide & Seek: "+user);
-			view.getCouple().start(this);
-		}
 	}
 	/**
 	 * @author Carl Quinn
@@ -151,15 +120,6 @@ public class Controller implements ActionListener {
 			if(e.getActionCommand() == view.getToolbar().ACERCADE) {
 				view.getDialogos().output("Acerca De", NOMBREPROYECTO+" by The Forest Software Company\nv1.0", JOptionPane.INFORMATION_MESSAGE);
 			}
-			/*
-			 * Login
-			 */
-			if(e.getActionCommand() == view.getLogin().SIGNIN) {
-				iniciarSesion(view.getLogin().getTxUser().getText(), view.getLogin().getTxPassword().getText());
-			}
-			if(e.getActionCommand() == view.getLogin().SIGNUP) {
-				registrarse();
-			}
 
 		} 
 		/*
@@ -167,22 +127,7 @@ public class Controller implements ActionListener {
 		 * el log. Esto es vital para el programa ya que me permite llevar una trazabilidad
 		 */
 		catch (Exception e2) {
-			StringWriter errors = new StringWriter();
-			e2.printStackTrace(new PrintWriter(errors));
-			try {
-				view.getDialogos().notification("File created successfully", mundo.getArchivo().makeLog(errors.toString()), MessageType.INFO);
-				view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
-						+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
-						JOptionPane.ERROR_MESSAGE);
-			} catch (IOException e1) {
-				view.getDialogos().output("Error Fatal",
-						"Ha ocurrido un error inesperado donde se debe salir del programa.\nMotivo: Error creando el log de archivos",
-						JOptionPane.ERROR_MESSAGE);
-				System.exit(1);
-			} catch (AWTException e1) {
-				// TODO Auto-generated catch block
-				
-			}
+			
 			view.getDialogos().output("Error", "Ha ocurrido un error inesperado\n"
 					+ "Se ha creado en <proyecto>/docs/Output un archivo myLog.log en donde aparece el detalle específico del error causado.",
 					JOptionPane.ERROR_MESSAGE);
