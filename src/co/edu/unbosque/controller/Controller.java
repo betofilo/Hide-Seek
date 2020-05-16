@@ -89,6 +89,7 @@ public class Controller implements ActionListener {
 		try {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
+			view.getLogin().setVisible(true);
 		} catch (Exception e) {
 			StringWriter errors = new StringWriter();
 			e.printStackTrace(new PrintWriter(errors));
@@ -98,10 +99,32 @@ public class Controller implements ActionListener {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
-	/*
-	 * TODO: Poner los métodos a probar aqui
-	 */
+	public void iniciarSesion(String user, String password) throws Exception {
+		String data = mundo.login(user, password);
+		if(data != null) {
+			String[] profile = data.split(",");
+			auth(profile[0],Integer.parseInt(profile[2]));
+		} else {
+			view.getDialogos().output("Error", "Usuario o clave incorrecta", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	public void registrarse() throws Exception {
+		
+	}
+	public void auth(String user, int profile) throws Exception {
+		if(profile == 0) {
+			view.getAdmin().setTitle("H&S ADMIN: "+user);
+			view.getAdmin().start(this);
+		}
+		if(profile == 1) {
+			view.getUser().setTitle("Hide & Seek: "+user);
+			view.getUser().start(this);
+		}
+		if(profile == 2) {
+			view.getCouple().setTitle("Hide & Seek: "+user);
+			view.getCouple().start(this);
+		}
+	}
 	/**
 	 * @author Carl Quinn
 	 * Método para escuchar los eventos de la vista
@@ -128,7 +151,15 @@ public class Controller implements ActionListener {
 			if(e.getActionCommand() == view.getToolbar().ACERCADE) {
 				view.getDialogos().output("Acerca De", NOMBREPROYECTO+" by The Forest Software Company\nv1.0", JOptionPane.INFORMATION_MESSAGE);
 			}
-			// TODO: Ingresar aquí las interacciones con Mundo
+			/*
+			 * Login
+			 */
+			if(e.getActionCommand() == view.getLogin().SIGNIN) {
+				iniciarSesion(view.getLogin().getTxUser().getText(), view.getLogin().getTxPassword().getText());
+			}
+			if(e.getActionCommand() == view.getLogin().SIGNUP) {
+				registrarse();
+			}
 
 		} 
 		/*
