@@ -16,7 +16,9 @@ public class View extends JFrame implements GabenFrame {
 	private static final long serialVersionUID = 1L;
 	private Dialogos dialogos = new Dialogos();
 	private PanelFuncionesSuperiores toolbar = new PanelFuncionesSuperiores();
-	
+	private JPanelAdmin admin = new JPanelAdmin();
+	private JPanelParejas parejas = new JPanelParejas();
+	private JPanelUsuarios usuarios = new JPanelUsuarios();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
