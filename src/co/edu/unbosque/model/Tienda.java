@@ -1,30 +1,42 @@
 package co.edu.unbosque.model;
 
+import java.util.ArrayList;
+
 public class Tienda {
 
-	private String idtienda;
-	private String dirección;
+	public String nombre;
 	
-	
-	public Tienda(String idtienda, String dirección) {
+	private ArrayList <Sucursal> sucursales;
+	private ArrayList <Administrador> administradores;
+	public Tienda(String nombre) {
 		super();
-		this.idtienda = idtienda;
-		this.dirección = dirección;
-
+		this.nombre = nombre;
+		sucursales = new ArrayList<Sucursal>();
+		administradores = new ArrayList<Administrador>();
+	}
+	public String getNombre() {
+		return nombre;
 	}
 	
-	public String getIdtienda() {
-		return idtienda;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public void setIdtienda(String idtienda) {
-		this.idtienda = idtienda;
+	public ArrayList<Sucursal> getSucursales() {
+		return sucursales;
 	}
-	public String getDirección() {
-		return dirección;
+	public void setSucursales(ArrayList<Sucursal> sucursales) {
+		this.sucursales = sucursales;
 	}
-	public void setDirección(String dirección) {
-		this.dirección = dirección;
+	public ArrayList<Administrador> getAdministradores() {
+		return administradores;
 	}
-
+	public void setAdministradores(ArrayList<Administrador> administradores) {
+		this.administradores = administradores;
+	}
+	@Override
+	public String toString() {
+		return "Tienda [nombre=" + nombre + ", sucursales=" + sucursales + ", administradores=" + administradores + "]";
+	}
+  
 	
 }
