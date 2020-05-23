@@ -37,8 +37,9 @@ public class View extends JFrame implements GabenFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800,600);
 		setLocationRelativeTo(null);
-		setLayout(new BorderLayout());
-		setVisible(false);
+		setLayout(new GridLayout(3,1));
+		setVisible(true);
+		setResizable(false);
 	}
 	
 	/**
@@ -46,7 +47,9 @@ public class View extends JFrame implements GabenFrame {
 	 * @author Gabriel Blanco
 	 */
 	public void addComponents() {
-		add(toolbar, BorderLayout.NORTH);
+		add(parejas);
+		add(usuarios);
+		add(admin);
 		//TODO: Añadir aquí los componentes
 		
 	}
