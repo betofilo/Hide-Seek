@@ -11,6 +11,16 @@ import javax.swing.JTextField;
 import co.edu.unbosque.controller.Controller;
 
 public class JDialogLogin extends JDialog{
+	public JDialogLogin(Controller control) {
+		try {
+			cargar();
+			addComponentes();
+			escucharComponentes(control);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel labelcorreo = new JLabel("Correo:");
@@ -23,11 +33,6 @@ public class JDialogLogin extends JDialog{
 	private JComboBox<String> combo = new JComboBox<String>();
 	public final String LOGIN = "login";
 	public final String REGISTRAR = "registrar";
-	public void iniciar(Controller control) throws Exception {
-		cargar();
-		addComponentes();
-		escucharComponentes(control);
-	}
 	
 	
 	public void cargar() throws Exception {
@@ -35,7 +40,7 @@ public class JDialogLogin extends JDialog{
 		setTitle("Login");
 		setSize(600,400);
 		setBackground(new Color(255,255,255));
-		setLayout(null);
+		getContentPane().setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		
@@ -71,17 +76,17 @@ public class JDialogLogin extends JDialog{
 	
 	public void addComponentes() {
 		
-		add(labelcorreo);
-		add(labelclave);
+		getContentPane().add(labelcorreo);
+		getContentPane().add(labelclave);
 		
 		
-		add(textcorreo);
-		add(textclave);
+		getContentPane().add(textcorreo);
+		getContentPane().add(textclave);
 		
-		add(botonLogin);
-		add(botonRegistrarse); 
+		getContentPane().add(botonLogin);
+		getContentPane().add(botonRegistrarse); 
 		
-		add(combo);
+		getContentPane().add(combo);
 	}
 	public void escucharComponentes(Controller control) {
 		botonRegistrarse.addActionListener(control);
