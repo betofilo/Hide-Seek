@@ -1,6 +1,9 @@
 package co.edu.unbosque.view;
 
 import javax.swing.*;
+
+import co.edu.unbosque.controller.Controller;
+
 import java.awt.*;
 import java.io.File;
 
@@ -20,10 +23,11 @@ public class JDialogRegistrar extends JDialog {
 	public final String REGISTRAR = "registrar";
 	public final String CANCELAR = "cancelaregistro";
     
-	public JDialogRegistrar() {
+	public JDialogRegistrar(Controller control) {
 		try {
 			cargar();
 			addComponentes();
+			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,43 +44,46 @@ public class JDialogRegistrar extends JDialog {
 		setLayout(null);
 		setBackground(Color.BLACK);
 
-		labelnom.setBounds(265, 100, 100, 50);
-		textnom.setBounds(335, 115, 200, 25);
-		labelnom.setForeground(Color.WHITE);
+//		labelnom.setBounds(265, 100, 100, 50);
+//		textnom.setBounds(335, 115, 200, 25);
+//		labelnom.setForeground(Color.BLACK);
 
 		labelcorreo.setBounds(265, 150, 100, 50);
 		textcorreo.setBounds(335, 165, 200, 25);
-		labelcorreo.setForeground(Color.WHITE);
+		labelcorreo.setForeground(Color.BLACK);
 
 		labelclave.setBounds(270, 200, 100, 50);
 		textclave.setBounds(335, 215, 200, 25);
-		labelclave.setForeground(Color.WHITE);
+		labelclave.setForeground(Color.BLACK);
 
 		labelconfclave.setBounds(215, 250, 200, 50);
 		textconfclave.setBounds(335, 265, 200, 25);
-		labelconfclave.setForeground(Color.WHITE);
+		
 
 		botonRegistrar.setBounds(250, 400, 100, 50);
-		botonRegistrar.setBackground(Color.white);
+		botonRegistrar.setBackground(Color.BLACK);
 
 		botonCancelar.setBounds(400, 400, 100, 50);
-		botonCancelar.setBackground(Color.white);
+		botonCancelar.setBackground(Color.BLACK);
 
 		setVisible(false);
 	}
 
 	public void addComponentes() {
-		add(labelnom);
+//		add(labelnom);
 		add(labelcorreo);
 		add(labelclave);
 		add(labelconfclave);
-		add(textnom);
+//		add(textnom);
 		add(textcorreo);
 		add(textclave);
 		add(textconfclave);
 		add(botonRegistrar);
 		add(botonCancelar);
 
+	}
+	public void escucharComponentes(Controller control) {
+		
 	}
 
 	public JLabel getLabelnom() {

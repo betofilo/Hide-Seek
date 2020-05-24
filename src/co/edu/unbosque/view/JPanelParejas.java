@@ -1,10 +1,14 @@
 package co.edu.unbosque.view;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.net.URL;
 
-//import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-//import javax.swing.JLabel;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JPanelParejas extends JPanel{
@@ -18,8 +22,8 @@ public class JPanelParejas extends JPanel{
 	public final String ACTUALIZARDATOS = "actualizar Datos";
 	public final String HACERPAGO = "hacer pago";
 	public final String LISTAAFILIADOS ="lista afiliados";
-//	private JLabel fondo= new JLabel();;
-//	private ImageIcon imagenes= new ImageIcon();
+	
+	
 
 	public JPanelParejas() {
 		try {
@@ -32,11 +36,10 @@ public class JPanelParejas extends JPanel{
 
 	public void cargar() throws Exception {
 		setLayout(null);
-//		fondo.setLayout(null);
-//		fondo.setBounds(0, 0, 200, 600);
-//		imagenes = new ImageIcon("Resources/fondopareja.png");
-//		fondo.setIcon(imagenes);
 		
+		
+		
+
 		
 		botonListaAfiliados.setBounds(175, 25, 200, 50);
 		botonListaAfiliados.setActionCommand(LISTAAFILIADOS);
@@ -68,11 +71,11 @@ public class JPanelParejas extends JPanel{
 		add(botonEliminarDatos);
 		add(botonActualizarDatos);
         add(botonHacerPago);
-//        getRootPane().add(fondo);
-//        add(fondo);
+       
       
        
 	}
+	
 
 
 	public JButton getBotonEliminarPareja() {

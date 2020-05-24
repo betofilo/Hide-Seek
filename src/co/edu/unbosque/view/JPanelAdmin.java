@@ -9,7 +9,7 @@ public class JPanelAdmin extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JButton botonAgregarUsuario  = new JButton ("Agregar Usuarios");
 	private JButton botonEliminarUsuario = new JButton("Eliminar Usuarios");
-	private JButton botonActualizarPareja  = new JButton ("Actualizar Usuarios");
+	
 	private JButton botonListaUsuario  = new JButton ("Lista Usuarios");
 	private JButton botonActualizarDatos = new JButton ("Actualizar Datos Usuarios");
 	private JButton botonAsignarCupoUsuario= new JButton ("Asignar cupo Usuario");
@@ -45,19 +45,18 @@ public class JPanelAdmin extends JPanel{
 		botonEliminarUsuario.setActionCommand(ELIMINARUSUARIOS);
 		botonEliminarUsuario.setBackground(Color.WHITE);
 		
-		botonActualizarPareja.setBounds(530,30 ,250, 50);
-		botonActualizarPareja.setActionCommand(ACTUALIZARUSUARIOS);
-		botonActualizarPareja.setBackground(Color.WHITE);
-		
-		botonListaUsuario.setBounds(9, 100, 250, 50);
-		botonListaUsuario.setActionCommand(LISTAUSUARIOS);
-		botonListaUsuario.setBackground(Color.WHITE);
-		
-		botonActualizarDatos.setBounds(270, 100, 250, 50);
+		botonActualizarDatos.setBounds(530,30 ,250, 50);
 		botonActualizarDatos.setActionCommand(ACTUALIZARDATOSUSUARIOS);
 		botonActualizarDatos.setBackground(Color.WHITE);
 		
-		botonAsignarCupoUsuario.setBounds(530,100,250,50);
+		
+		botonListaUsuario.setBounds(125, 100, 250, 50);
+		botonListaUsuario.setActionCommand(LISTAUSUARIOS);
+		botonListaUsuario.setBackground(Color.WHITE);
+		
+		
+		
+		botonAsignarCupoUsuario.setBounds(425,100,250,50);
 		botonAsignarCupoUsuario.setActionCommand(ASIGNARCUPO);
 		botonAsignarCupoUsuario.setBackground(Color.WHITE);
 		
@@ -72,7 +71,6 @@ public class JPanelAdmin extends JPanel{
 	public void addComponentes() {
 		add(botonAgregarUsuario);
 		add(botonEliminarUsuario);
-		add(botonActualizarPareja);
         add(botonListaUsuario);
         add(botonActualizarDatos);
         add(botonHacerPago);
@@ -94,14 +92,6 @@ public class JPanelAdmin extends JPanel{
 
 	public void setBotonEliminarUsuario(JButton botonEliminarUsuario) {
 		this.botonEliminarUsuario = botonEliminarUsuario;
-	}
-
-	public JButton getBotonActualizarPareja() {
-		return botonActualizarPareja;
-	}
-
-	public void setBotonActualizarPareja(JButton botonActualizarPareja) {
-		this.botonActualizarPareja = botonActualizarPareja;
 	}
 
 	public JButton getBotonListaUsuario() {
