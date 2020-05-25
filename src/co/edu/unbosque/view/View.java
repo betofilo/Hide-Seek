@@ -19,6 +19,16 @@ public class View extends JFrame implements GabenFrame {
 	private JPanelAdmin admin = new JPanelAdmin();
 	private JPanelParejas parejas = new JPanelParejas();
 	private JPanelUsuarios usuarios = new JPanelUsuarios();
+	private JDialogAgregar agregar = new JDialogAgregar();
+	private JDialogActualizar actualizar = new JDialogActualizar();
+	private JDialogAsignarCupo asignarCupo = new JDialogAsignarCupo();
+	private JDialogBuscador buscador = new JDialogBuscador();
+	private JDialogEliminar eliminar = new JDialogEliminar();
+	private JDialogHorario horario = new JDialogHorario();
+	private JDialogListar listar = new JDialogListar();
+	private JDialogLogin login = new JDialogLogin();
+	private JDialogPago pago = new JDialogPago();
+	private JDialogRegistrar registrar = new JDialogRegistrar();
 	/**
 	 * Método para iniciar la ventana principal
 	 * @author Gabriel Blanco
@@ -37,7 +47,7 @@ public class View extends JFrame implements GabenFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(800,600);
 		setLocationRelativeTo(null);
-		setLayout(new GridLayout(3,1));
+		setLayout(new BorderLayout());
 		setVisible(true);
 		setResizable(false);
 	}
@@ -47,9 +57,13 @@ public class View extends JFrame implements GabenFrame {
 	 * @author Gabriel Blanco
 	 */
 	public void addComponents() {
-		add(parejas);
-		add(usuarios);
-		add(admin);
+		JPanel containerPanel = new JPanel();
+		containerPanel.setLayout(new GridLayout(3,1));
+		containerPanel.add(parejas);
+		containerPanel.add(usuarios);
+		containerPanel.add(admin);
+		add(containerPanel, BorderLayout.CENTER);
+		add(toolbar, BorderLayout.NORTH);
 		//TODO: Añadir aquí los componentes
 		
 	}
@@ -67,7 +81,39 @@ public class View extends JFrame implements GabenFrame {
 		toolbar.getGuardar().addActionListener(control);
 		toolbar.getCargar().addActionListener(control);
 		toolbar.getSalir().addActionListener(control);
-		//TODO: Poner aqui los componentes a escuchar y comentar a que panel pertenece
+		//Dialogo AsignarCupo
+		asignarCupo.getAsignar().addActionListener(control);
+		asignarCupo.getCancelar().addActionListener(control);
+		asignarCupo.getQuitar().addActionListener(control);
+		//Dialogo Actualizar
+		actualizar.getBotonActualizar().addActionListener(control);
+		actualizar.getBotonCancelar().addActionListener(control);
+		//Dialogo Buscador
+		buscador.getBotonBuscar().addActionListener(control);
+		buscador.getBotonCancelar().addActionListener(control);
+		//Dialogo Eliminar
+		eliminar.getBotonEliminar().addActionListener(control);
+		eliminar.getBotonCancelar().addActionListener(control);
+		//Dialogo Horario
+		horario.getDatechooser().getCalendarButton().addActionListener(control);
+		horario.getBotonaceptar().addActionListener(control);
+		//Dialogo Listar
+		listar.getMostrar().addActionListener(control);
+		listar.getCancelar().addActionListener(control);
+		listar.getLimpiar().addActionListener(control);
+		//Dialogo Login
+		login.getBotonRegistrarse().addActionListener(control);
+		login.getBotonLogin().addActionListener(control);
+		login.getCombo().addActionListener(control);
+		//Dialogo Pago
+		pago.getPagar().addActionListener(control);
+		pago.getCancelar().addActionListener(control);
+		//Dialogo Registrar
+		registrar.getBotonRegistrar().addActionListener(control);
+		registrar.getBotonCancelar().addActionListener(control);
+		//Dialogo Agregar
+		agregar.getBotonRegistrar().addActionListener(control);
+		agregar.getBotonCancelar().addActionListener(control);
 	}
 	
 	public String cargarArchivo() throws IOException {
@@ -113,5 +159,44 @@ public class View extends JFrame implements GabenFrame {
 	}
 	public PanelFuncionesSuperiores getToolbar() {
 		return toolbar;
+	}
+	public JPanelAdmin getAdmin() {
+		return admin;
+	}
+	public JPanelParejas getParejas() {
+		return parejas;
+	}
+	public JPanelUsuarios getUsuarios() {
+		return usuarios;
+	}
+	public JDialogActualizar getActualizar() {
+		return actualizar;
+	}
+	public JDialogAsignarCupo getAsignarCupo() {
+		return asignarCupo;
+	}
+	public JDialogBuscador getBuscador() {
+		return buscador;
+	}
+	public JDialogEliminar getEliminar() {
+		return eliminar;
+	}
+	public JDialogHorario getHorario() {
+		return horario;
+	}
+	public JDialogListar getListar() {
+		return listar;
+	}
+	public JDialogLogin getLogin() {
+		return login;
+	}
+	public JDialogPago getPago() {
+		return pago;
+	}
+	public JDialogRegistrar getRegistrar() {
+		return registrar;
+	}
+	public JDialogAgregar getAgregar() {
+		return agregar;
 	}
 }

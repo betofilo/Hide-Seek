@@ -11,6 +11,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogListar extends JDialog {
     private static final long serialVersionUID = 1L;
     private JTable tabla;
@@ -144,6 +148,16 @@ public class JDialogListar extends JDialog {
 	public int getCounter() {
 		return counter;
 	}
-	
-	
+
+	public JButton getMostrar() {
+		return Mostrar;
+	}
+
+	public JButton getCancelar() {
+		return Cancelar;
+	}
+
+	public JButton getLimpiar() {
+		return Limpiar;
+	}
 }

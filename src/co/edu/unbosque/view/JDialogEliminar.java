@@ -8,23 +8,25 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import co.edu.unbosque.controller.Controller;
 
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogEliminar extends JDialog {
-private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;
+
 	private JLabel labelBuscador = new JLabel("Buscador:");
 	private JButton botonEliminar = new JButton("Eliminar");
 	private JButton botonCancelar = new JButton("Cancelar");
 	private JTextField textbuscador = new JTextField("");
-	public final String ELIMINAR= "eliminarpa";
+	public final String ELIMINAR = "eliminarpa";
 	public final String CANCELAR = "cancelareliminacion";
-    
-	public JDialogEliminar(Controller control) {
+
+	public JDialogEliminar() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -33,20 +35,18 @@ private static final long serialVersionUID = 1L;
 	public void cargar() throws Exception {
 		setLayout(new BorderLayout());
 		setTitle("Buscador Eliminar");
-		setSize(600,400);
+		setSize(600, 400);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBackground(Color.BLACK);
-		
 
 		labelBuscador.setBounds(150, 100, 100, 50);
 		textbuscador.setBounds(250, 115, 200, 25);
-		
 
-		botonEliminar.setBounds(50,200, 200, 50);
+		botonEliminar.setBounds(50, 200, 200, 50);
 		botonEliminar.setActionCommand(ELIMINAR);
 		botonEliminar.setBackground(Color.BLACK);
 		botonEliminar.setForeground(Color.WHITE);
@@ -59,16 +59,12 @@ private static final long serialVersionUID = 1L;
 	}
 
 	public void addComponentes() {
-		
+
 		add(labelBuscador);
 		add(textbuscador);
 		add(botonEliminar);
 		add(botonCancelar);
 
-	}
-	public void escucharComponentes(Controller control) {
-		botonEliminar.addActionListener(control);
-		botonCancelar.addActionListener(control);
 	}
 
 	public JLabel getLabelBuscador() {
@@ -110,5 +106,5 @@ private static final long serialVersionUID = 1L;
 	public String getCANCELAR() {
 		return CANCELAR;
 	}
-	
+
 }

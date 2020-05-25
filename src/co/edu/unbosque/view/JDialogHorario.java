@@ -4,21 +4,18 @@ package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
-import co.edu.unbosque.controller.Controller;
 
-
-
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogHorario extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JLabel labelfecha = new JLabel("Fecha: ");
@@ -27,11 +24,10 @@ public class JDialogHorario extends JDialog {
 //	private DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	private JDateChooser datechooser = new JDateChooser();
 	public final String ACEPTAR ="aceptarfecha",CANCELAR="cancelarfecha";
-	public JDialogHorario(Controller control) {
+	public JDialogHorario() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,10 +69,6 @@ public class JDialogHorario extends JDialog {
 		add(labelfecha);
 		getContentPane().add(datechooser);
 
-	}
-	public void escucharComponentes(Controller control) {
-		datechooser.getCalendarButton().addActionListener(control);
-		botonaceptar.addActionListener(control);
 	}
 
 	public JLabel getLabelfecha() {

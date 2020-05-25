@@ -8,14 +8,15 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import co.edu.unbosque.controller.Controller;
-
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogLogin extends JDialog{
-	public JDialogLogin(Controller control) {
+	public JDialogLogin() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,13 +89,6 @@ public class JDialogLogin extends JDialog{
 		
 		getContentPane().add(combo);
 	}
-	public void escucharComponentes(Controller control) {
-		botonRegistrarse.addActionListener(control);
-		botonLogin.addActionListener(control);
-		combo.addActionListener(control);
-	}
-
-	
 
 	public JLabel getLabelcorreo() {
 		return labelcorreo;
@@ -128,7 +122,7 @@ public class JDialogLogin extends JDialog{
 	}
 	
 
-	public JComboBox getCombo() {
+	public JComboBox<String> getCombo() {
 		return combo;
 	}
     

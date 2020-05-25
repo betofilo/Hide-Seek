@@ -86,8 +86,18 @@ public class Controller implements ActionListener {
 		try {
 			view.setTitle(NOMBREPROYECTO);
 			view.start(this);
+			login();
 		} catch (Exception e) {
 			
+		}
+	}
+	
+	public void login() throws Exception {
+		try {
+			view.setVisible(false);
+			view.getLogin().setVisible(true);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 	}
 	
@@ -119,6 +129,9 @@ public class Controller implements ActionListener {
 			}
 			if(e.getActionCommand() == view.getToolbar().ACERCADE) {
 				view.getDialogos().output("Acerca De", NOMBREPROYECTO+" by The Forest Software Company\nv1.0", JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(e.getActionCommand() == view.getToolbar().CERRARSESION) {
+				
 			}
 
 		} 

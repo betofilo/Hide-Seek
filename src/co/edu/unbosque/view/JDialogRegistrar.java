@@ -2,11 +2,12 @@ package co.edu.unbosque.view;
 
 import javax.swing.*;
 
-import co.edu.unbosque.controller.Controller;
-
 import java.awt.*;
-import java.io.File;
 
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogRegistrar extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -22,12 +23,11 @@ public class JDialogRegistrar extends JDialog {
 	private JTextField textconfclave = new JTextField("");
 	public final String REGISTRAR = "registrar";
 	public final String CANCELAR = "cancelaregistro";
-    
-	public JDialogRegistrar(Controller control) {
+
+	public JDialogRegistrar() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,9 +36,9 @@ public class JDialogRegistrar extends JDialog {
 	public void cargar() throws Exception {
 		setLayout(new BorderLayout());
 		setTitle("Registro");
-		setSize(800,600);
+		setSize(800, 600);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setLayout(null);
@@ -58,7 +58,6 @@ public class JDialogRegistrar extends JDialog {
 
 		labelconfclave.setBounds(215, 250, 200, 50);
 		textconfclave.setBounds(335, 265, 200, 25);
-		
 
 		botonRegistrar.setBounds(250, 400, 100, 50);
 		botonRegistrar.setBackground(Color.BLACK);
@@ -81,9 +80,6 @@ public class JDialogRegistrar extends JDialog {
 		add(botonRegistrar);
 		add(botonCancelar);
 
-	}
-	public void escucharComponentes(Controller control) {
-		
 	}
 
 	public JLabel getLabelnom() {

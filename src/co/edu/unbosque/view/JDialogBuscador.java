@@ -8,8 +8,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import co.edu.unbosque.controller.Controller;
-
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogBuscador extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JLabel labelBuscador = new JLabel("Buscador:");
@@ -19,11 +21,10 @@ public class JDialogBuscador extends JDialog {
 	public final String BUSCAR= "buscar";
 	public final String CANCELAR = "cancelarbuscar";
     
-	public JDialogBuscador(Controller control) {
+	public JDialogBuscador() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,10 +65,6 @@ public class JDialogBuscador extends JDialog {
 		add(botonBuscar);
 		add(botonCancelar);
 
-	}
-	public void escucharComponentes(Controller control) {
-		botonBuscar.addActionListener(control);
-		botonCancelar.addActionListener(control);
 	}
 
 	public JLabel getLabelBuscador() {

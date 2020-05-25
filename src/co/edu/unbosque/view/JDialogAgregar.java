@@ -8,11 +8,13 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import co.edu.unbosque.controller.Controller;
-
-public class JDialogAgregar extends JDialog{
+/**
+ * @author Ricardo Sanchez
+ *
+ */
+public class JDialogAgregar extends JDialog {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JLabel labelcorreo = new JLabel("Correo:");
 	private JLabel labelconfcorreo = new JLabel("Confirmar Correo:");
 	private JLabel labelclave = new JLabel("Clave: ");
@@ -25,12 +27,11 @@ public class JDialogAgregar extends JDialog{
 	private JTextField textconfclave = new JTextField("");
 	public final String AGREGAR = "agregar";
 	public final String CANCELAR = "cancelaregistropa";
-    
-	public JDialogAgregar(Controller control) {
+
+	public JDialogAgregar() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,34 +40,32 @@ public class JDialogAgregar extends JDialog{
 	public void cargar() throws Exception {
 		getContentPane().setLayout(new BorderLayout());
 		setTitle("Agregar Pareja");
-		setSize(600,400);
+		setSize(600, 400);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
+
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		setBackground(Color.WHITE);
 
-		labelcorreo.setBounds(170,40 , 125, 50);
+		labelcorreo.setBounds(170, 40, 125, 50);
 		textcorreo.setBounds(250, 55, 200, 25);
 
 		labelconfcorreo.setBounds(95, 85, 160, 50);
 		textconfcorreo.setBounds(250, 95, 200, 25);
-		
+
 		labelclave.setBounds(180, 125, 100, 50);
 		textclave.setBounds(250, 135, 200, 25);
-		
 
 		labelconfclave.setBounds(105, 165, 200, 50);
 		textconfclave.setBounds(250, 175, 200, 25);
-		
 
 		botonRegistrar.setBounds(200, 225, 100, 50);
 		botonRegistrar.setActionCommand(AGREGAR);
 		botonRegistrar.setBackground(Color.BLACK);
 		botonRegistrar.setForeground(Color.WHITE);
 
-		botonCancelar.setBounds(350,225, 100, 50);
+		botonCancelar.setBounds(350, 225, 100, 50);
 		botonCancelar.setActionCommand(CANCELAR);
 		botonCancelar.setBackground(Color.BLACK);
 		botonCancelar.setForeground(Color.WHITE);
@@ -75,7 +74,7 @@ public class JDialogAgregar extends JDialog{
 	}
 
 	public void addComponentes() {
-		
+
 		getContentPane().add(labelcorreo);
 		getContentPane().add(labelconfcorreo);
 		getContentPane().add(textconfcorreo);
@@ -87,9 +86,6 @@ public class JDialogAgregar extends JDialog{
 		getContentPane().add(botonRegistrar);
 		getContentPane().add(botonCancelar);
 
-	}
-	public void escucharComponentes(Controller control) {
-		
 	}
 
 	public JLabel getLabelcorreo() {
@@ -163,5 +159,14 @@ public class JDialogAgregar extends JDialog{
 	public String getCANCELAR() {
 		return CANCELAR;
 	}
+
+	public JLabel getLabelconfcorreo() {
+		return labelconfcorreo;
+	}
+
+	public JTextField getTextconfcorreo() {
+		return textconfcorreo;
+	}
+
 	
 }

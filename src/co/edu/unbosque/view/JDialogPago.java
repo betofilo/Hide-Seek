@@ -8,8 +8,10 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import co.edu.unbosque.controller.Controller;
-
+/**
+ * @author Ricardo Sanchez
+ *
+ */
 public class JDialogPago extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JButton pagar = new JButton("Realizar Pago");
@@ -17,11 +19,10 @@ public class JDialogPago extends JDialog {
 	private JLabel label = new JLabel("Ingrese el monto que desea usar: ");
 	private JTextField textcantidad = new JTextField();
 	public final String PAGAR ="pagar",CANCELAR ="cancelarpago";
-	public JDialogPago(Controller control) {
+	public JDialogPago() {
 		try {
 			cargar();
 			addComponentes();
-			escucharComponentes(control);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -64,10 +65,6 @@ public class JDialogPago extends JDialog {
 		add(textcantidad);
 		
 
-	}
-	public void escucharComponentes(Controller control) {
-		pagar.addActionListener(control);
-		cancelar.addActionListener(control);
 	}
 
 	public JButton getPagar() {
