@@ -17,6 +17,8 @@ public class Cliente {
 	
 	
 	
+	
+	
 	public Cliente(String nombre, double cupo,String userid, String correo, String contraseña, String genero) {
 		super();
 		this.nombre = nombre;

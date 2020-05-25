@@ -1,10 +1,14 @@
 package co.edu.unbosque.model.persistence;
 
 import java.io.IOException;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import co.edu.unbosque.model.Tienda;
 import co.edu.unbosque.model.Administrador;
+import co.edu.unbosque.model.Compra;
 import co.edu.unbosque.model.Sucursal;
 
 
@@ -179,7 +183,29 @@ private ArchivoTiendas archivo;
 		}
 	}
 	
+	//log compras
+	public boolean agregarCompras(ArrayList<Tienda> tiendas,String tienda,String sucursal, String nombre, String direccion,String cliente, String pareja, double precio){
+		
+		//aquí se agrega la fecha
+		 Date fecha = new Date();
+		String formatoFecha = "hh:mm:ss a dd-MMM-yyyy"; 
+		  SimpleDateFormat objSDF = new SimpleDateFormat(formatoFecha); 
+		
+		
+		Compra nuevolog= new Compra( objSDF.format(fecha), sucursal, cliente, pareja, precio);
+		Tienda c=buscarTienda(tiendas, tienda);
+		if( buscarSucursal(c,nombre)== null){
+			c.getCompras().add(nuevolog);
+			 
+			return true;
+		}else {
+			return false;			
+		}
+	}
+	
+	
 
+	//aqui termina log de compras
 	
 	
 	public ArchivoTiendas getArchivoTiendas() {
