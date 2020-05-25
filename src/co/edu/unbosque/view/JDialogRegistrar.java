@@ -11,14 +11,14 @@ import java.awt.*;
 public class JDialogRegistrar extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel labelnom = new JLabel("Nombre: ");
-	private JLabel labelcorreo = new JLabel("Correo:");
+	private JLabel labelcorreo = new JLabel("Correo: ");
+	private JLabel labelconfcorreo = new JLabel("Confirmar Correo: ");
 	private JLabel labelclave = new JLabel("Clave: ");
 	private JLabel labelconfclave = new JLabel("Confirmar Clave: ");
 	private JButton botonRegistrar = new JButton("Registrar");
 	private JButton botonCancelar = new JButton("Cancelar");
-	private JTextField textnom = new JTextField("");
 	private JTextField textcorreo = new JTextField("");
+	private JTextField textconfcorreo = new JTextField("");
 	private JTextField textclave = new JTextField("");
 	private JTextField textconfclave = new JTextField("");
 	public final String REGISTRAR = "registrar";
@@ -44,13 +44,13 @@ public class JDialogRegistrar extends JDialog {
 		setLayout(null);
 		setBackground(Color.BLACK);
 
-//		labelnom.setBounds(265, 100, 100, 50);
-//		textnom.setBounds(335, 115, 200, 25);
-//		labelnom.setForeground(Color.BLACK);
-
-		labelcorreo.setBounds(265, 150, 100, 50);
-		textcorreo.setBounds(335, 165, 200, 25);
+		labelcorreo.setBounds(265, 100, 100, 50);
+		textcorreo.setBounds(335, 115, 200, 25);
 		labelcorreo.setForeground(Color.BLACK);
+
+		labelconfcorreo.setBounds(200, 150, 200, 50);
+		textconfcorreo.setBounds(335, 165, 200, 25);
+		labelconfcorreo.setForeground(Color.BLACK);
 
 		labelclave.setBounds(270, 200, 100, 50);
 		textclave.setBounds(335, 215, 200, 25);
@@ -67,14 +67,19 @@ public class JDialogRegistrar extends JDialog {
 
 		setVisible(false);
 	}
+	public void clean() {
+		textconfcorreo.setText("");
+		textclave.setText("");
+		textconfclave.setText("");
+	}
 
 	public void addComponentes() {
-//		add(labelnom);
 		add(labelcorreo);
+		add(labelconfcorreo);
 		add(labelclave);
 		add(labelconfclave);
-//		add(textnom);
 		add(textcorreo);
+		add(textconfcorreo);
 		add(textclave);
 		add(textconfclave);
 		add(botonRegistrar);
@@ -83,19 +88,19 @@ public class JDialogRegistrar extends JDialog {
 	}
 
 	public JLabel getLabelnom() {
-		return labelnom;
-	}
-
-	public void setLabelnom(JLabel labelnom) {
-		this.labelnom = labelnom;
-	}
-
-	public JLabel getLabelcorreo() {
 		return labelcorreo;
 	}
 
+	public void setLabelnom(JLabel labelnom) {
+		this.labelcorreo = labelnom;
+	}
+
+	public JLabel getLabelcorreo() {
+		return labelconfcorreo;
+	}
+
 	public void setLabelcorreo(JLabel labelcorreo) {
-		this.labelcorreo = labelcorreo;
+		this.labelconfcorreo = labelcorreo;
 	}
 
 	public JLabel getLabelclave() {
@@ -115,19 +120,19 @@ public class JDialogRegistrar extends JDialog {
 	}
 
 	public JTextField getTextnom() {
-		return textnom;
-	}
-
-	public void setTextnom(JTextField textnom) {
-		this.textnom = textnom;
-	}
-
-	public JTextField getTextcorreo() {
 		return textcorreo;
 	}
 
+	public void setTextnom(JTextField textnom) {
+		this.textcorreo = textnom;
+	}
+
+	public JTextField getTextcorreo() {
+		return textconfcorreo;
+	}
+
 	public void setTextcorreo(JTextField textcorreo) {
-		this.textcorreo = textcorreo;
+		this.textconfcorreo = textcorreo;
 	}
 
 	public JTextField getTextclave() {

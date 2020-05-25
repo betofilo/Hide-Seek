@@ -55,7 +55,7 @@ public class JDialogEliminar extends JDialog {
 		botonCancelar.setActionCommand(CANCELAR);
 		botonCancelar.setBackground(Color.BLACK);
 		botonCancelar.setForeground(Color.WHITE);
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {
@@ -65,6 +65,10 @@ public class JDialogEliminar extends JDialog {
 		add(botonEliminar);
 		add(botonCancelar);
 
+	}
+	public void clean() {
+		textbuscador.setText("");
+		
 	}
 
 	public JLabel getLabelBuscador() {

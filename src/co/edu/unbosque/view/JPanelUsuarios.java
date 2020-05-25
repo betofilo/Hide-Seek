@@ -68,7 +68,7 @@ public class JPanelUsuarios extends JPanel {
 
 		setBackground(Color.MAGENTA);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {

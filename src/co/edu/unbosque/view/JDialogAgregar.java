@@ -70,7 +70,7 @@ public class JDialogAgregar extends JDialog {
 		botonCancelar.setBackground(Color.BLACK);
 		botonCancelar.setForeground(Color.WHITE);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {

@@ -30,7 +30,7 @@ public class JDialogPago extends JDialog {
 
 	public void cargar() throws Exception {
 		setLayout(new BorderLayout());
-		setTitle("Buscador");
+		setTitle("Pago");
 		setSize(600,400);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
@@ -56,6 +56,9 @@ public class JDialogPago extends JDialog {
 
 		
 		setVisible(true);
+	}
+	public void clean() {
+		textcantidad.setText("");
 	}
 
 	public void addComponentes() {

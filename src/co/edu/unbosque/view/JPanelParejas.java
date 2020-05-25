@@ -50,7 +50,7 @@ public class JPanelParejas extends JPanel {
 
 		setBackground(Color.BLUE);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {

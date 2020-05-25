@@ -32,7 +32,7 @@ public class JDialogHorario extends JDialog {
 			e.printStackTrace();
 		}
 	}
-
+  
 	public void cargar() throws Exception {
 		getContentPane().setLayout(new BorderLayout());
 		setTitle("Asignar Horario");
@@ -45,7 +45,9 @@ public class JDialogHorario extends JDialog {
 		getContentPane().setBackground(Color.BLACK);
 		
 		
-        
+      /**
+       * TODO hacer los cambios especificados en cambios interfaz que es la ultima parte de fecha para que se muestre como se especifica  
+       */
 		
 		labelfecha.setBounds(150, 100, 300, 50);
 		labelfecha.setForeground(Color.WHITE);
@@ -60,7 +62,8 @@ public class JDialogHorario extends JDialog {
 		botoncancelar.setBounds(300,200, 100, 50);
 		botoncancelar.setActionCommand(CANCELAR);
 		botoncancelar.setBackground(Color.WHITE);
-		setVisible(true);
+		
+		setVisible(false);
 	}
 
 	public void addComponentes() {
@@ -69,6 +72,10 @@ public class JDialogHorario extends JDialog {
 		add(labelfecha);
 		getContentPane().add(datechooser);
 
+	}
+	public void clean() {
+		datechooser.setCalendar(null);
+		
 	}
 
 	public JLabel getLabelfecha() {

@@ -46,6 +46,9 @@ public class JDialogLogin extends JDialog{
 		setLocationRelativeTo(null);
 		
 		
+		/**
+		 * TODO Agregar un text para que ingrese el nombre de usuario en caso de pareja 
+		 */
 		labelcorreo.setBounds(150, 50, 100, 50);
 		textcorreo.setBounds(215,65, 200, 25);
 		labelcorreo.setForeground(Color.BLACK);
@@ -88,6 +91,10 @@ public class JDialogLogin extends JDialog{
 		getContentPane().add(botonRegistrarse); 
 		
 		getContentPane().add(combo);
+	}
+	public void clean() {
+		textcorreo.setText("");
+		textclave.setText("");
 	}
 
 	public JLabel getLabelcorreo() {

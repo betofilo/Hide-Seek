@@ -70,7 +70,7 @@ public class JDialogActualizar extends JDialog {
 		botonCancelar.setBackground(Color.BLACK);
 		botonCancelar.setForeground(Color.WHITE);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {
@@ -85,6 +85,12 @@ public class JDialogActualizar extends JDialog {
 		getContentPane().add(botonActualizar);
 		getContentPane().add(botonCancelar);
 
+	}
+	public void clean() {
+		textcorreo.setText("");
+		textconfclave.setText("");
+		textclave.setText("");
+		
 	}
 
 	public JButton getBotonActualizar() {

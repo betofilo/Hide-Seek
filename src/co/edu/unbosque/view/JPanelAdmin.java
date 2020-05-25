@@ -63,7 +63,7 @@ public class JPanelAdmin extends JPanel {
 
 		setBackground(Color.RED);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {
