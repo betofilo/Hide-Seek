@@ -17,8 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JDialogAsignarCupo extends JDialog {
 	private static final long serialVersionUID = 1L;
-
-	private JTable tabla;
+    private JTable tabla;
 	private DefaultTableModel model;
 	private JScrollPane scrollpane;
 	private JButton Asignar = new JButton("Asignar");
@@ -48,7 +47,7 @@ public class JDialogAsignarCupo extends JDialog {
 		setBackground(Color.BLACK);
 
 		tabla = new JTable(
-				new DefaultTableModel(new Object[] { "Correo", "Tienda", "Activa", "Dinero en cuenta" }, counter));
+				new DefaultTableModel(new Object[] { "Correo", "Tienda", "Activa", "Efectivo" }, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);

@@ -46,12 +46,10 @@ public class JDialogListar extends JDialog {
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBackground(Color.BLACK);
-		/**
-		 * TODO Cambiar los datos que se llenan en la tabla
-		 */
+		
 	
 		
-		tabla = new JTable(new DefaultTableModel(new Object[] {"Correo", "Tienda", "Activa", "Dinero en cuenta"}, counter));
+		tabla = new JTable(new DefaultTableModel(new Object[] {"UserID", "Correo", "Tienda", "Dinero"}, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);
@@ -60,7 +58,7 @@ public class JDialogListar extends JDialog {
 		scrollpane.setViewportView(tabla);
 		setLayout(new BorderLayout());
 		counter++;
-		
+		setVisible(false);
 	}
 	public void panelbotones()  {
 		JPanel panelboton = new JPanel();
@@ -87,6 +85,47 @@ public class JDialogListar extends JDialog {
 		for (int i = 0; i < tabla.getRowCount(); i++) {
 			model.removeRow(i);
 		}
+	}
+	
+
+	public String getMOSTRAR() {
+		return MOSTRAR;
+	}
+
+	public String getCANCELAR() {
+		return CANCELAR;
+	}
+
+	public String getLIMPIAR() {
+		return LIMPIAR;
+	}
+
+	public void setTabla(JTable tabla) {
+		this.tabla = tabla;
+	}
+
+	public void setModel(DefaultTableModel model) {
+		this.model = model;
+	}
+
+	public void setScrollpane(JScrollPane scrollpane) {
+		this.scrollpane = scrollpane;
+	}
+
+	public void setMostrar(JButton mostrar) {
+		Mostrar = mostrar;
+	}
+
+	public void setCancelar(JButton cancelar) {
+		Cancelar = cancelar;
+	}
+
+	public void setLimpiar(JButton limpiar) {
+		Limpiar = limpiar;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 	public JTable getTabla() {

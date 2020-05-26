@@ -19,7 +19,6 @@ public class View extends JFrame implements GabenFrame {
 	private JPanelAdmin admin = new JPanelAdmin();
 	private JPanelParejas parejas = new JPanelParejas();
 	private JPanelUsuarios usuarios = new JPanelUsuarios();
-	private JDialogAgregar agregar = new JDialogAgregar();
 	private JDialogActualizar actualizar = new JDialogActualizar();
 	private JDialogAsignarCupo asignarCupo = new JDialogAsignarCupo();
 	private JDialogBuscador buscador = new JDialogBuscador();
@@ -95,7 +94,6 @@ public class View extends JFrame implements GabenFrame {
 		eliminar.getBotonEliminar().addActionListener(control);
 		eliminar.getBotonCancelar().addActionListener(control);
 		//Dialogo Horario
-		horario.getDatechooser().getCalendarButton().addActionListener(control);
 		horario.getBotonaceptar().addActionListener(control);
 		//Dialogo Listar
 		listar.getMostrar().addActionListener(control);
@@ -111,9 +109,7 @@ public class View extends JFrame implements GabenFrame {
 		//Dialogo Registrar
 		registrar.getBotonRegistrar().addActionListener(control);
 		registrar.getBotonCancelar().addActionListener(control);
-		//Dialogo Agregar
-		agregar.getBotonRegistrar().addActionListener(control);
-		agregar.getBotonCancelar().addActionListener(control);
+		
 	}
 	
 	public String cargarArchivo() throws IOException {
@@ -196,7 +192,5 @@ public class View extends JFrame implements GabenFrame {
 	public JDialogRegistrar getRegistrar() {
 		return registrar;
 	}
-	public JDialogAgregar getAgregar() {
-		return agregar;
-	}
+	
 }

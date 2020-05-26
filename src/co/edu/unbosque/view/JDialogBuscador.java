@@ -66,6 +66,9 @@ public class JDialogBuscador extends JDialog {
 		add(botonCancelar);
 
 	}
+	public void clean() {
+		textbuscador.setText("");
+	}
 
 	public JLabel getLabelBuscador() {
 		return labelBuscador;
