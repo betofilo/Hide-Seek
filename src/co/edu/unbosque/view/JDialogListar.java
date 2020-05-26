@@ -38,7 +38,7 @@ public class JDialogListar extends JDialog {
 		
 		
 		setLayout(new BorderLayout());
-		setTitle("Asignar Cupo");
+		setTitle("Lista");
 		setSize(800,600);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
@@ -49,7 +49,7 @@ public class JDialogListar extends JDialog {
 		
 	
 		
-		tabla = new JTable(new DefaultTableModel(new Object[] {"Correo", "Tienda", "Activa", "Dinero en cuenta"}, counter));
+		tabla = new JTable(new DefaultTableModel(new Object[] {"UserID", "Correo", "Tienda", "Dinero"}, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);
@@ -58,7 +58,7 @@ public class JDialogListar extends JDialog {
 		scrollpane.setViewportView(tabla);
 		setLayout(new BorderLayout());
 		counter++;
-		
+		setVisible(false);
 	}
 	public void panelbotones()  {
 		JPanel panelboton = new JPanel();
@@ -87,50 +87,45 @@ public class JDialogListar extends JDialog {
 		}
 	}
 	
-	
-	public String traerTabla() {
-		String[] data = new String[tabla.getRowCount()];
-		String ladata = "";
-		for (int i = 0; i < data.length; i++) {
-			data[i] = tabla.getModel().getValueAt(i, 0).toString();
-			ladata += data[i]+";";
-		}
-		return ladata;
-	}
-	
-	public void anadirPareja(String Correo, String Tienda, String Activa, String Dinero) {
-		model.addRow(new Object[] {Correo, Tienda, Activa, Dinero});
-		counter++;
-	}
-	
-	public String traerColumna() {
-		String data = "";
-		for (int i = 0; i < tabla.getColumnCount(); i++) {
-			data += tabla.getModel().getValueAt(tabla.getSelectedRow(), i).toString()+";";
-		}
-		return data;
-	}
-	
-	public String leerJugador() {
 
-		return tabla.getModel().getValueAt(tabla.getSelectedRow(), 0).toString();
+	public String getMOSTRAR() {
+		return MOSTRAR;
 	}
-	
-	public void actualizarJugador(String Correo, String Tienda, String Activa, String Dinero) {
-		for (int i = 0; i < tabla.getRowCount(); i++) {
-			if(Correo.equals(tabla.getModel().getValueAt(i, 0))) {
-				model.removeRow(i);
-				model.addRow(new Object[] {Correo, Tienda, Activa, Dinero});
-			}
-		}
+
+	public String getCANCELAR() {
+		return CANCELAR;
 	}
-	
-	public void eliminarJugador(String Nickname) {
-		for (int i = 0; i < tabla.getRowCount(); i++) {
-			if(Nickname.equals(tabla.getModel().getValueAt(i, 0))) {
-				model.removeRow(i);
-			}
-		}
+
+	public String getLIMPIAR() {
+		return LIMPIAR;
+	}
+
+	public void setTabla(JTable tabla) {
+		this.tabla = tabla;
+	}
+
+	public void setModel(DefaultTableModel model) {
+		this.model = model;
+	}
+
+	public void setScrollpane(JScrollPane scrollpane) {
+		this.scrollpane = scrollpane;
+	}
+
+	public void setMostrar(JButton mostrar) {
+		Mostrar = mostrar;
+	}
+
+	public void setCancelar(JButton cancelar) {
+		Cancelar = cancelar;
+	}
+
+	public void setLimpiar(JButton limpiar) {
+		Limpiar = limpiar;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
 	}
 
 	public JTable getTabla() {

@@ -13,6 +13,20 @@ import javax.swing.JTextField;
  *
  */
 public class JDialogLogin extends JDialog{
+	
+	private static final long serialVersionUID = 1L;
+	private JLabel labeluser = new JLabel("Usuario:");
+	private JLabel labelcorreo = new JLabel("Correo:");
+	private JLabel labelclave = new JLabel("Clave: ");
+	
+	private JButton botonLogin = new JButton("Iniciar Sesion");
+	private JButton botonRegistrarse = new JButton("Registrarse");
+	private JTextField textcorreo = new JTextField("");
+	private JTextField textclave = new JTextField("");
+	private JTextField textusuario = new JTextField("");
+	private JComboBox<String> combo = new JComboBox<String>();
+	public final String LOGIN = "login";
+	public final String REGISTRAR = "registrar";
 	public JDialogLogin() {
 		try {
 			cargar();
@@ -22,19 +36,6 @@ public class JDialogLogin extends JDialog{
 		}
 		
 	}
-	private static final long serialVersionUID = 1L;
-	
-	private JLabel labelcorreo = new JLabel("Correo:");
-	private JLabel labelclave = new JLabel("Clave: ");
-	
-	private JButton botonLogin = new JButton("Iniciar Sesion");
-	private JButton botonRegistrarse = new JButton("Registrarse");
-	private JTextField textcorreo = new JTextField("");
-	private JTextField textclave = new JTextField("");
-	private JComboBox<String> combo = new JComboBox<String>();
-	public final String LOGIN = "login";
-	public final String REGISTRAR = "registrar";
-	
 	
 	public void cargar() throws Exception {
 		
@@ -46,21 +47,29 @@ public class JDialogLogin extends JDialog{
 		setLocationRelativeTo(null);
 		
 		
-		labelcorreo.setBounds(150, 50, 100, 50);
-		textcorreo.setBounds(215,65, 200, 25);
+		/**
+		 * TODO Agregar un text para que ingrese el nombre de usuario en caso de pareja 
+		 */
+		labeluser.setBounds(150,65,100, 50);
+		textusuario.setBounds(215,80, 200, 25);
+		labeluser.setVisible(false);
+		textcorreo.setVisible(false);
+		
+		labelcorreo.setBounds(150, 125, 100, 50);
+		textcorreo.setBounds(215,135, 200, 25);
 		labelcorreo.setForeground(Color.BLACK);
 	
 		
-		labelclave.setBounds(150,100,100,50);
-		textclave.setBounds(215,115,200,25);
+		labelclave.setBounds(150,175,100,50);
+		textclave.setBounds(215,190,200,25);
 	    labelclave.setForeground(Color.BLACK);
 	    
 	  
 	    
-		botonLogin.setBounds(125,200, 150, 50);
+		botonLogin.setBounds(125,250, 150, 50);
 		botonLogin.setBackground(Color.white);
 		
-		botonRegistrarse.setBounds(325,200,150,50);
+		botonRegistrarse.setBounds(325,250,150,50);
 		botonRegistrarse.setBackground(Color.white);
 		
 		combo.addItem("Usuario");
@@ -72,22 +81,27 @@ public class JDialogLogin extends JDialog{
 		
 		
 		
-		setVisible(true);
+		setVisible(false);
 	}
 	
 	public void addComponentes() {
+		add(labeluser);
+		add(labelcorreo);
+		add(labelclave);
 		
-		getContentPane().add(labelcorreo);
-		getContentPane().add(labelclave);
+		add(textusuario);
+		add(textcorreo);
+		add(textclave);
 		
+		add(botonLogin);
+		add(botonRegistrarse); 
 		
-		getContentPane().add(textcorreo);
-		getContentPane().add(textclave);
+	    add(combo);
 		
-		getContentPane().add(botonLogin);
-		getContentPane().add(botonRegistrarse); 
-		
-		getContentPane().add(combo);
+	}
+	public void clean() {
+		textcorreo.setText("");
+		textclave.setText("");
 	}
 
 	public JLabel getLabelcorreo() {

@@ -15,12 +15,14 @@ import javax.swing.JTextField;
 public class JDialogActualizar extends JDialog {
 	
 	private static final long serialVersionUID = 1L;
+	private JLabel labelusuario = new JLabel("Nuevo Usuario: ");
 	private JLabel labelcorreo = new JLabel("Nuevo Correo: ");
 	private JLabel labelconfcorreo = new JLabel("Confirmar Correo:");
 	private JLabel labelclave = new JLabel("Nueva clave: ");
 	private JLabel labelconfclave = new JLabel("Confirmar Clave: ");
 	private JButton botonActualizar = new JButton("Actualizar");
 	private JButton botonCancelar = new JButton("Cancelar");
+	private JTextField textusuario = new JTextField("");
 	private JTextField textcorreo = new JTextField("");
 	private JTextField textconfcorreo = new JTextField("");
 	private JTextField textclave = new JTextField("");
@@ -48,17 +50,24 @@ public class JDialogActualizar extends JDialog {
 		getContentPane().setLayout(null);
 		setBackground(Color.WHITE);
 
-		labelcorreo.setBounds(115, 40, 125, 50);
-		textcorreo.setBounds(250, 55, 200, 25);
+		labelusuario.setBounds(255, 80, 100, 50);
+		textusuario.setBounds(335, 95, 200, 25);
+		
 
-		labelconfcorreo.setBounds(90, 85, 160, 50);
-		textconfcorreo.setBounds(250, 95, 200, 25);
+		labelcorreo.setBounds(260, 130, 100, 50);
+		textcorreo.setBounds(335, 145, 200, 25);
+	
+		
+		labelconfcorreo.setBounds(185,180 , 200, 50);
+		textconfcorreo.setBounds(335,195, 200, 25);
 
-		labelclave.setBounds(130, 125, 100, 50);
-		textclave.setBounds(250, 135, 200, 25);
+		labelclave.setBounds(270, 230, 100, 50);
+		textclave.setBounds(335, 245, 200, 25);
+	
 
-		labelconfclave.setBounds(105, 165, 200, 50);
-		textconfclave.setBounds(250, 175, 200, 25);
+		labelconfclave.setBounds(195, 280, 200, 50);
+		textconfclave.setBounds(335, 295, 200, 25);
+
 
 		botonActualizar.setBounds(150, 235, 150, 50);
 		botonActualizar.setActionCommand(ACTUALIZAR);
@@ -70,7 +79,7 @@ public class JDialogActualizar extends JDialog {
 		botonCancelar.setBackground(Color.BLACK);
 		botonCancelar.setForeground(Color.WHITE);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public void addComponentes() {
@@ -85,6 +94,13 @@ public class JDialogActualizar extends JDialog {
 		getContentPane().add(botonActualizar);
 		getContentPane().add(botonCancelar);
 
+	}
+	public void clean() {
+		textusuario.setText("");
+		textcorreo.setText("");
+		textconfclave.setText("");
+		textclave.setText("");
+		
 	}
 
 	public JButton getBotonActualizar() {

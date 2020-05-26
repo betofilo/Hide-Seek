@@ -17,8 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JDialogAsignarCupo extends JDialog {
 	private static final long serialVersionUID = 1L;
-
-	private JTable tabla;
+    private JTable tabla;
 	private DefaultTableModel model;
 	private JScrollPane scrollpane;
 	private JButton Asignar = new JButton("Asignar");
@@ -48,7 +47,7 @@ public class JDialogAsignarCupo extends JDialog {
 		setBackground(Color.BLACK);
 
 		tabla = new JTable(
-				new DefaultTableModel(new Object[] { "Correo", "Tienda", "Activa", "Dinero en cuenta" }, counter));
+				new DefaultTableModel(new Object[] { "Correo", "Tienda", "Activa", "Efectivo" }, counter));
 		model = (DefaultTableModel) tabla.getModel();
 		tabla.setAutoscrolls(true);
 		tabla.setColumnSelectionAllowed(false);
@@ -57,6 +56,7 @@ public class JDialogAsignarCupo extends JDialog {
 		scrollpane.setViewportView(tabla);
 		setLayout(new BorderLayout());
 		counter++;
+		setVisible(false);
 
 	}
 
@@ -86,50 +86,6 @@ public class JDialogAsignarCupo extends JDialog {
 		}
 	}
 
-	public String traerTabla() {
-		String[] data = new String[tabla.getRowCount()];
-		String ladata = "";
-		for (int i = 0; i < data.length; i++) {
-			data[i] = tabla.getModel().getValueAt(i, 0).toString();
-			ladata += data[i] + ";";
-		}
-		return ladata;
-	}
-
-	public void anadirPareja(String Correo, String Tienda, String Activa, String Dinero) {
-		model.addRow(new Object[] { Correo, Tienda, Activa, Dinero });
-		counter++;
-	}
-
-	public String traerColumna() {
-		String data = "";
-		for (int i = 0; i < tabla.getColumnCount(); i++) {
-			data += tabla.getModel().getValueAt(tabla.getSelectedRow(), i).toString() + ";";
-		}
-		return data;
-	}
-
-	public String leerJugador() {
-
-		return tabla.getModel().getValueAt(tabla.getSelectedRow(), 0).toString();
-	}
-
-	public void actualizarJugador(String Correo, String Tienda, String Activa, String Dinero) {
-		for (int i = 0; i < tabla.getRowCount(); i++) {
-			if (Correo.equals(tabla.getModel().getValueAt(i, 0))) {
-				model.removeRow(i);
-				model.addRow(new Object[] { Correo, Tienda, Activa, Dinero });
-			}
-		}
-	}
-
-	public void eliminarJugador(String Nickname) {
-		for (int i = 0; i < tabla.getRowCount(); i++) {
-			if (Nickname.equals(tabla.getModel().getValueAt(i, 0))) {
-				model.removeRow(i);
-			}
-		}
-	}
 
 	public JTable getTabla() {
 		return tabla;

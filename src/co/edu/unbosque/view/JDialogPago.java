@@ -4,9 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 
 /**
  * @author Ricardo Sanchez
@@ -16,8 +18,10 @@ public class JDialogPago extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JButton pagar = new JButton("Realizar Pago");
 	private JButton cancelar = new JButton("Cancelar");
-	private JLabel label = new JLabel("Ingrese el monto que desea usar: ");
+	private JLabel label = new JLabel("Ingrese el monto: ");
 	private JTextField textcantidad = new JTextField();
+	private JLabel sucursal = new JLabel("Sucursal: ");
+	private JComboBox<String> combo = new JComboBox<String>();
 	public final String PAGAR ="pagar",CANCELAR ="cancelarpago";
 	public JDialogPago() {
 		try {
@@ -30,7 +34,7 @@ public class JDialogPago extends JDialog {
 
 	public void cargar() throws Exception {
 		setLayout(new BorderLayout());
-		setTitle("Buscador");
+		setTitle("Pago");
 		setSize(600,400);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
@@ -39,8 +43,11 @@ public class JDialogPago extends JDialog {
 		setLayout(null);
 		setBackground(Color.BLACK);
 		
-		label.setBounds(75,100 , 300, 25);
-		textcantidad.setBounds(325, 100, 200, 25);
+		sucursal.setBounds(125, 70, 100, 50);
+		combo.setBounds(200, 85, 200, 25);
+		
+		label.setBounds(100,125 , 300, 25);
+		textcantidad.setBounds(325, 125, 200, 25);
 		
 		pagar.setBounds(150, 200, 150, 50);
 		pagar.setBackground(Color.BLACK);
@@ -55,16 +62,38 @@ public class JDialogPago extends JDialog {
 		
 
 		
-		setVisible(true);
+		setVisible(false);
 	}
-
+	
+	
 	public void addComponentes() {
+		add(combo);
+		add(sucursal);
 		add(label);
 		add(pagar);
 		add(cancelar);
 		add(textcantidad);
 		
 
+	}
+	public void clean() {
+		textcantidad.setText("");
+	}
+	
+    public JLabel getSucursal() {
+		return sucursal;
+	}
+
+	public void setSucursal(JLabel sucursal) {
+		this.sucursal = sucursal;
+	}
+
+	public JComboBox<String> getCombo() {
+		return combo;
+	}
+
+	public void setCombo(JComboBox<String> combo) {
+		this.combo = combo;
 	}
 
 	public JButton getPagar() {
