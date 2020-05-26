@@ -51,7 +51,7 @@ public class Compra {
 	
 	@Override
 	public String toString() {
-		return "Compra [date=" + date + ", tienda=" + tienda + ", cliente=" + cliente + ", pareja=" + pareja + ", precio=" + precio + "]";
+		return precio+" "+tienda+" "+cliente+" "+pareja+" "+date;
 	}
 	
 	

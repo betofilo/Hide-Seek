@@ -66,6 +66,23 @@ public class Tienda {
 			
 			return logcompras;
 	}
+	//retorna el log de compras como un arreglo de strings
+	public String[] CompraSucursal( String nombresucursal) {
+		int p=0;
+		String[] logcompras= new String[noComprasSucursal(nombresucursal)];
+		for (int i = 0; i < compras.size(); i++) {
+			String aux=compras.get(i).getTienda();
+		
+			if(aux==nombresucursal) {
+			String auxc=compras.get(i).toString();
+			logcompras[p]=auxc;
+			p++;
+			}
+			
+		}
+			
+			return logcompras;
+	}
 	
 	public int noComprasSucursal(String nombresucursal) {
 		int p=0;
@@ -99,6 +116,25 @@ public class Tienda {
 			return logcompras;
 	}
 	
+	//retorna el log de compras de cliente en un arreglo de strings
+	public String[] compraCliente( String usercliente) {
+		int p=0;
+		String[] logcompras= new String[noComprasClientes(usercliente)];
+		for (int i = 0; i < compras.size(); i++) {
+			String aux=compras.get(i).getCliente();
+		
+			if(aux==usercliente) {
+			String auxc=compras.get(i).toString();
+			logcompras[p]=auxc;
+			p++;
+			}
+			
+		}
+			
+			return logcompras;
+	}
+	
+	
 	public int noComprasClientes(String usercliente) {
 		int p=0;
 		for (int i = 0; i < compras.size(); i++) {
@@ -107,15 +143,75 @@ public class Tienda {
 			if(aux==usercliente) {
 				p++;
 			}
-		}
-		
+		}	
 		return p;
 	}
 	
 	
-	//aqui termina compras por cliente
+	//Este método retorna los nombres de las sucursales en un arreglo de Strings
+	
+	public String[] nombreSucursales() {
+		
+		int p=sucursales.size();
+		String[] nombresucursales=new String[p];
+		for (int i = 0; i < sucursales.size(); i++) {
+			nombresucursales[i]=sucursales .get(i).getNombre();
+		}
+		return nombresucursales;
+	}
+	
+	public Compra[] ordenarComprasMayor(Compra[] compras) {
+		int i,j;
+		int num=compras.length;
+		Compra temp;
+		
+		     for ( i = 0; i < num-1; i++) 
+		        { 
+		    
+		            int min = i; 
+		            for ( j = i+1; j < num; j++) 
+		                if (compras[j].getPrecio() < compras[min].getPrecio()) 
+		                    min = j; 
+		  
+		     
+		            temp = compras[min]; 
+		            compras[min] = compras[i]; 
+		            compras[i] = temp; 
+		        } 
+		    
+		
+		
+		
+		return compras;
+		
+	
+	}
 	
 	
+	public Compra[] ordenarComprasMenor(Compra[] compras) {
+		int i,j;
+		int num=compras.length;
+		Compra temp;
+		
+		     for ( i = 0; i < num-1; i++) 
+		        { 
+		    
+		            int min = i; 
+		            for ( j = i+1; j < num; j++) 
+		                if (compras[j].getPrecio() > compras[min].getPrecio()) 
+		                    min = j; 
+		  
+		     
+		            temp = compras[min]; 
+		            compras[min] = compras[i]; 
+		            compras[i] = temp; 
+		        } 
+		    
+		
+		
+		
+		return compras;
+	} 
 	
 	
 	@Override
