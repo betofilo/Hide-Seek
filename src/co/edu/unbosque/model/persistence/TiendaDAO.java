@@ -9,7 +9,9 @@ import java.util.Date;
 import co.edu.unbosque.model.Tienda;
 import co.edu.unbosque.model.Administrador;
 import co.edu.unbosque.model.Compra;
+import co.edu.unbosque.model.Pareja;
 import co.edu.unbosque.model.Sucursal;
+import co.edu.unbosque.model.Cliente;
 
 
 public class TiendaDAO {
@@ -184,7 +186,35 @@ private ArchivoTiendas archivo;
 	}
 	
 	//log compras
-	public boolean agregarCompras(ArrayList<Tienda> tiendas,String tienda,String sucursal, String nombre, String direccion,String cliente, String pareja, double precio){
+	public boolean agregarCompraCliente(ArrayList<Tienda> tiendas,ArrayList<Cliente> clientes,String tienda,String sucursal, String nombre, String direccion,String cliente, double precio){
+		
+		//aquí se agrega la fecha
+		 Date fecha = new Date();
+		String formatoFecha = "hh:mm:ss a dd-MMM-yyyy"; 
+		  SimpleDateFormat objSDF = new SimpleDateFormat(formatoFecha); 
+		
+		
+		Compra nuevolog= new Compra( objSDF.format(fecha), sucursal, cliente, null, precio);
+		Tienda c=buscarTienda(tiendas, tienda);
+		//busco cliente
+		Cliente auxc=null;
+		for(int i=0; i<clientes.size(); i++){
+			if(clientes.get(i).getUserid().contentEquals(cliente)){
+				auxc= clientes.get(i);
+			}
+		}
+		
+		
+		if(auxc.saldoCliente()>=precio){
+			c.getCompras().add(nuevolog);
+			auxc.setGasto(auxc.getGasto()+precio);
+			return true;
+		}else {
+			return false;			
+		}
+	}
+	
+	public boolean agregarCompraPareja(ArrayList<Tienda> tiendas,ArrayList<Cliente> clientes,String tienda,String sucursal, String nombre, String direccion,String cliente, double precio, String pareja){
 		
 		//aquí se agrega la fecha
 		 Date fecha = new Date();
@@ -194,9 +224,29 @@ private ArchivoTiendas archivo;
 		
 		Compra nuevolog= new Compra( objSDF.format(fecha), sucursal, cliente, pareja, precio);
 		Tienda c=buscarTienda(tiendas, tienda);
-		if( buscarSucursal(c,nombre)== null){
+		//busco cliente
+		Cliente auxc=null;
+		Pareja auxp=null;
+		for(int i=0; i<clientes.size(); i++){
+			if(clientes.get(i).getUserid().contentEquals(cliente)){
+				auxc= clientes.get(i);
+			}
+		}
+		
+		ArrayList<Pareja> d=auxc.getParejas();
+		for (int i = 0; i < d.size(); i++) {
+			if(d.get(i).getUserid().equals(pareja)) {
+				auxp=d.get(i);
+			}
+			
+		}
+		
+		
+		if(auxc.saldoCliente()>=precio && auxp.saldoPareja()>=precio){
 			c.getCompras().add(nuevolog);
-			 
+			auxc.setGasto(auxc.getGasto()+precio);
+			auxp.setGasto(auxc.getGasto()+precio);
+		
 			return true;
 		}else {
 			return false;			

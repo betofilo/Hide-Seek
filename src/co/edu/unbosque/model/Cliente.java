@@ -11,7 +11,9 @@ public class Cliente {
 	private String contraseña;
 	private String genero;
 	private String tipo;
+	private double gasto;
 	private ArrayList <Pareja> parejas;
+	private ArrayList <Horario> horarios;
 	
 	
 	
@@ -28,7 +30,9 @@ public class Cliente {
 		this.contraseña = contraseña;
 		this.genero = genero;
 		this.tipo = "0";
+		this.gasto=0;
 		parejas = new ArrayList<Pareja>();
+		horarios = new ArrayList<Horario>();
 	}
 	
 	
@@ -78,6 +82,16 @@ public class Cliente {
 	}
 
 
+	public double getGasto() {
+		return gasto;
+	}
+
+
+	public void setGasto(double gasto) {
+		this.gasto = gasto;
+	}
+
+
 	public ArrayList<Pareja> getParejas() {
 		return parejas;
 	}
@@ -87,6 +101,19 @@ public class Cliente {
 	}
 
 
+	public ArrayList<Horario> getHorarios() {
+		return horarios;
+	}
+
+
+	public void setHorarios(ArrayList<Horario> horarios) {
+		this.horarios = horarios;
+	}
+
+	public double saldoCliente() {
+		
+		return cupo-gasto;
+	}
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", cupo=" + cupo + ", userid=" + userid + ", correo=" + correo

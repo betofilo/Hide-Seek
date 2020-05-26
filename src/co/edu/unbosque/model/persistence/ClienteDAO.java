@@ -82,7 +82,7 @@ private ArchivoClientes archivo;
 		
 	
 	}
-	// toca hacer metodo de buscar parejas de agregar y de eliminar
+	// toca hacer metodo de buscar,agregar y de eliminar parejas
 	public boolean agregarPareja(ArrayList<Cliente> clientes,String userid, String nombre, double cupo, String userpareja, String correo, String contraseña, String genero){
 		Pareja nuevo= new Pareja( nombre,  cupo, userid,correo, contraseña,  genero);
 		Cliente c=buscarCliente(clientes, userid);
@@ -143,6 +143,10 @@ private ArchivoClientes archivo;
 		
 		return null;
 	}
+	
+	
+	
+	
 	
 	public ArchivoClientes getArchivo() {
 		return archivo;
